@@ -13,21 +13,22 @@ def tree1(a_turtle, size):
   a_turtle.forward(size)
   a_turtle.backward(size)
 
-def tree2(a_turtle, size):
+def tree(a_turtle, level, size):
   a_turtle.forward(size)
+  if level>1:
 
-  a_turtle.left(25)
-  tree1(a_turtle, size*0.65)
-  a_turtle.right(25)
-  a_turtle.right(35)
-  tree1(a_turtle, size*0.85)
-  a_turtle.left(35)
+    a_turtle.left(25)
+    tree(a_turtle, level-1, size*0.65)
+    a_turtle.right(25)
+    a_turtle.right(35)
+    tree(a_turtle,level-1, size*0.85)
+    a_turtle.left(35)
 
   a_turtle.backward(size)
 
-tree1(turtles[0], 100)
-tree2(turtles[1], 100)
-#tree3(turtles[2], 100)
+tree(turtles[0], 4, 100)
+tree(turtles[1],8, 100)
+tree(turtles[2],12, 100)
 
 # Keep the window open and listening for events
 window.mainloop()
